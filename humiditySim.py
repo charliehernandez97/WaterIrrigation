@@ -1,6 +1,8 @@
 import random
 import time
 
+# TODO turn this into a function that returns humidity value
+
 # Initial humidity
 humidity = 60
 

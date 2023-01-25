@@ -1,6 +1,12 @@
 import time
 import keyboard
 
+# TODO
+"""
+this file will be modified to simulate moisture of plants
+using the humidity and temp sim
+"""
+
 soil_moisture = 10
 meter = "##########"
 

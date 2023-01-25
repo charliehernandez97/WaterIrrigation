@@ -1,6 +1,8 @@
 import random
 import time
 
+# TODO turn this into a function that returns temp value
+
 # Initial temperature
 temp = 72.0
 
