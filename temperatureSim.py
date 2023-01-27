@@ -4,7 +4,8 @@ import time
 # TODO turn this into a function that returns temp value
 
 # Initial temperature
-temp = 72.0
+# Commented out since return function was added
+# temp = 72.0
 
 # Temperature range
 min_temp = 32.0
@@ -14,16 +15,19 @@ max_temp = 100.0
 min_change = -4
 max_change = 4
 
-while True:
+
+def modified_temp(current_temp):
     # Generate a random temperature change
     temp_change = random.randint(min_change, max_change)
-    temp += temp_change
+    current_temp += temp_change
 
     # Check if temperature is within range
-    if temp > max_temp:
-        temp = max_temp
-    elif temp < min_temp:
-        temp = min_temp
+    if current_temp > max_temp:
+        current_temp = max_temp
+    elif current_temp < min_temp:
+        current_temp = min_temp
 
-    print("Temperature:", temp)
-    time.sleep(1)
+    return current_temp
+
+
+time.sleep(1)
