@@ -3,8 +3,6 @@ import time
 
 # TODO turn this into a function that returns humidity value
 
-# Initial humidity
-# Commented out since return function was added
 # humidity = 60
 
 # Humidity range

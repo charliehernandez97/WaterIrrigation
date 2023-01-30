@@ -3,8 +3,6 @@ import time
 
 # TODO turn this into a function that returns temp value
 
-# Initial temperature
-# Commented out since return function was added
 # temp = 72.0
 
 # Temperature range
