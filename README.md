@@ -8,8 +8,9 @@ Once the system is fully implemented, penetration tests will be conducted to exp
 
 Technologies used:
 
-Python3
-Ladder Diagrams
-Raspberry Pi
-OpenPLC
-Modbus Protocol
+Python3, Ladder Diagrams, Raspberry Pi, OpenPLC, Modbus Protocol, SCADABr
+
+![images](https://user-images.githubusercontent.com/28545535/215598904-738bbe24-8743-40d3-a5d6-68eb9875f2b0.png)
+![download](https://user-images.githubusercontent.com/28545535/215598986-dbf454eb-6512-41c6-a946-44c52b306d5d.jpg)
+![download](https://user-images.githubusercontent.com/28545535/215599047-37446700-ca1d-468c-944b-86c144a4a6e2.png)
+![download](https://user-images.githubusercontent.com/28545535/215599104-14b265e1-79f1-4a4c-9934-75303710f95b.png)
