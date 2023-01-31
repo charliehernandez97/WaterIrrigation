@@ -28,4 +28,4 @@ def modified_temp(current_temp):
     return current_temp
 
 
-time.sleep(1)
+# time.sleep(1)

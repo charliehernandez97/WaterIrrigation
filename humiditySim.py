@@ -28,4 +28,4 @@ def modified_humidity(current_humidity):
     return current_humidity
 
 
-time.sleep(1)
+# time.sleep(1)
