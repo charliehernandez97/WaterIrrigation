@@ -202,13 +202,12 @@ __end:
 
 void WATERIRRIGATION_init__(WATERIRRIGATION *data__, BOOL retain) {
   __INIT_VAR(data__->OUTGOING_VALVE,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->INCOMING_VALVE,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->OUTGOING_PUMP,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->INCOMING_PUMP,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->TANK_FULL,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->TANK_FULL,__BOOL_LITERAL(TRUE),retain)
   __INIT_VAR(data__->PULSE,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->MAX_TANK_LEVEL,10,retain)
-  __INIT_VAR(data__->TANK_LEVEL_VALUE,10,retain)
+  __INIT_VAR(data__->MAX_TANK_LEVEL,80,retain)
+  __INIT_VAR(data__->TANK_LEVEL_VALUE,50,retain)
   CTD_init__(&data__->CTD0,retain);
   CTU_init__(&data__->CTU0,retain);
   TON_init__(&data__->TON0,retain);
@@ -223,7 +222,7 @@ void WATERIRRIGATION_body__(WATERIRRIGATION *data__) {
   // Initialise TEMP variables
 
   __SET_VAR(data__->TP0.,IN,,__GET_VAR(data__->OUTGOING_VALVE,));
-  __SET_VAR(data__->TP0.,PT,,__time_to_timespec(1, 10000, 0, 0, 0, 0));
+  __SET_VAR(data__->TP0.,PT,,__time_to_timespec(1, 11000, 0, 0, 0, 0));
   TP_body__(&data__->TP0);
   __SET_VAR(data__->,OUTGOING_PUMP,,__GET_VAR(data__->TP0.Q,));
   __SET_VAR(data__->R_TRIG1.,CLK,,(__GET_VAR(data__->PULSE,) && __GET_VAR(data__->OUTGOING_PUMP,)));

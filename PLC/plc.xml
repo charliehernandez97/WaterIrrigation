@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2023-01-31T01:35:27"/>
-  <contentHeader name="Unnamed" modificationDateTime="2023-02-03T03:34:49">
+  <contentHeader name="Unnamed" modificationDateTime="2023-02-03T04:23:49">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -25,27 +25,25 @@
                 <BOOL/>
               </type>
             </variable>
-            <variable name="INCOMING_VALVE" address="%QX0.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
             <variable name="OUTGOING_PUMP" address="%QX0.0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="INCOMING_PUMP" address="%QX0.3">
+            <variable name="INCOMING_PUMP" address="%QX0.2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="TANK_FULL" address="%QX0.4">
+            <variable name="TANK_FULL" address="%QX0.3">
               <type>
                 <BOOL/>
               </type>
+              <initialValue>
+                <simpleValue value="True"/>
+              </initialValue>
             </variable>
-            <variable name="PULSE" address="%QX0.5">
+            <variable name="PULSE" address="%QX0.4">
               <type>
                 <BOOL/>
               </type>
@@ -55,7 +53,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="10"/>
+                <simpleValue value="80"/>
               </initialValue>
             </variable>
             <variable name="TANK_LEVEL_VALUE" address="%QW2">
@@ -63,7 +61,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="10"/>
+                <simpleValue value="50"/>
               </initialValue>
             </variable>
           </localVars>
@@ -860,9 +858,9 @@
             <inVariable localId="53" height="30" width="90" negated="false">
               <position x="420" y="230"/>
               <connectionPointOut>
-                <relPosition x="90" y="20"/>
+                <relPosition x="90" y="10"/>
               </connectionPointOut>
-              <expression>T#10000ms</expression>
+              <expression>T#11000ms</expression>
             </inVariable>
           </LD>
         </body>
