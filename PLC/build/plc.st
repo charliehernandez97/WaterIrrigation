@@ -99,8 +99,8 @@ PROGRAM WaterIrrigation
     INCOMING_PUMP : BOOL;
     TANK_FULL : BOOL := True;
     PULSE : BOOL;
-    MAX_TANK_LEVEL : INT := 80;
-    TANK_LEVEL_VALUE : INT := 50;
+    MAX_TANK_LEVEL : INT := 20;
+    TANK_LEVEL_VALUE : INT := 20;
   END_VAR
   VAR
     CTD0 : CTD;

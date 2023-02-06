@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2023-01-31T01:35:27"/>
-  <contentHeader name="Unnamed" modificationDateTime="2023-02-03T04:23:49">
+  <contentHeader name="Unnamed" modificationDateTime="2023-02-06T00:50:08">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -53,7 +53,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="80"/>
+                <simpleValue value="20"/>
               </initialValue>
             </variable>
             <variable name="TANK_LEVEL_VALUE" address="%QW2">
@@ -61,7 +61,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="50"/>
+                <simpleValue value="20"/>
               </initialValue>
             </variable>
           </localVars>
@@ -510,9 +510,11 @@
             <outVariable localId="35" height="30" width="140" negated="false">
               <position x="650" y="350"/>
               <connectionPointIn>
-                <relPosition x="0" y="20"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="37" formalParameter="CV">
-                  <position x="650" y="370"/>
+                  <position x="650" y="360"/>
+                  <position x="625" y="360"/>
+                  <position x="625" y="370"/>
                   <position x="600" y="370"/>
                 </connection>
               </connectionPointIn>

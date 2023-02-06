@@ -206,8 +206,8 @@ void WATERIRRIGATION_init__(WATERIRRIGATION *data__, BOOL retain) {
   __INIT_VAR(data__->INCOMING_PUMP,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->TANK_FULL,__BOOL_LITERAL(TRUE),retain)
   __INIT_VAR(data__->PULSE,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->MAX_TANK_LEVEL,80,retain)
-  __INIT_VAR(data__->TANK_LEVEL_VALUE,50,retain)
+  __INIT_VAR(data__->MAX_TANK_LEVEL,20,retain)
+  __INIT_VAR(data__->TANK_LEVEL_VALUE,20,retain)
   CTD_init__(&data__->CTD0,retain);
   CTU_init__(&data__->CTU0,retain);
   TON_init__(&data__->TON0,retain);
