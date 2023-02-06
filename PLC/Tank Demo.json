@@ -1,0 +1,101 @@
+{
+   "graphicalViews":[
+      {
+         "user":"admin",
+         "anonymousAccess":"NONE",
+         "viewComponents":[
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_763207",
+               "imageSet":"Valvula-3D",
+               "bkgdColorOverride":"",
+               "displayControls":false,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":1,
+               "settableOverride":false,
+               "x":424,
+               "y":605,
+               "zeroImageIndex":2
+            },
+            {
+               "type":"BUTTON",
+               "dataPointXid":"DP_381889",
+               "bkgdColorOverride":"",
+               "displayControls":false,
+               "height":65,
+               "nameOverride":"",
+               "script":"var s = '';if (value)  s += \"<input type='button' value='OUTGOING VALVE ON' onclick='mango.view.setPoint(\"+ point.id +\",\"+ pointComponent.id +\", false);return false;' style='width:150px; height:65px;'\/>\"; else s += \"<input type='button' value='OUTGOING VALVE OFF' onclick='mango.view.setPoint(\"+ point.id +\",\"+ pointComponent.id +\", true);return true;' style='width:150px; height:65px;'\/>\"; return s;",
+               "settableOverride":false,
+               "whenOffLabel":"OUTGOING VALVE OFF",
+               "whenOnLabel":"OUTGOING VALVE ON",
+               "width":150,
+               "x":497,
+               "y":383
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_763207",
+               "imageSet":"Encanamento-C-3D",
+               "bkgdColorOverride":"",
+               "displayControls":false,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":0,
+               "settableOverride":false,
+               "x":475,
+               "y":505,
+               "zeroImageIndex":1
+            },
+            {
+               "type":"BUTTON",
+               "dataPointXid":"DP_193545",
+               "bkgdColorOverride":"",
+               "displayControls":false,
+               "height":65,
+               "nameOverride":"",
+               "script":"var s = '';if (value)  s += \"<input type='button' value='INCOMING VALVE ON' onclick='mango.view.setPoint(\"+ point.id +\",\"+ pointComponent.id +\", false);return false;' style='width:150px; height:65px;'\/>\"; else s += \"<input type='button' value='INCOMING VALVE OFF' onclick='mango.view.setPoint(\"+ point.id +\",\"+ pointComponent.id +\", true);return true;' style='width:150px; height:65px;'\/>\"; return s;",
+               "settableOverride":false,
+               "whenOffLabel":"INCOMING VALVE OFF",
+               "whenOnLabel":"INCOMING VALVE ON",
+               "width":150,
+               "x":669,
+               "y":383
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_193545",
+               "imageSet":"Valvula-3D",
+               "bkgdColorOverride":"",
+               "displayControls":false,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":1,
+               "settableOverride":false,
+               "x":76,
+               "y":605,
+               "zeroImageIndex":0
+            },
+            {
+               "type":"ANALOG_GRAPHIC",
+               "dataPointXid":"DP_036485",
+               "imageSet":"Tanque-Nivel-gd",
+               "bkgdColorOverride":"",
+               "displayControls":false,
+               "displayText":false,
+               "max":20.0,
+               "min":0.0,
+               "nameOverride":"",
+               "settableOverride":false,
+               "x":138,
+               "y":358
+            }
+         ],
+         "sharingUsers":[
+         ],
+         "backgroundFilename":"uploads\/5.png",
+         "name":"Tank Demo",
+         "xid":"GV_492242"
+      }
+   ]
+}
