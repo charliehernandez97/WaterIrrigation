@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2023-01-31T01:35:27"/>
-  <contentHeader name="Unnamed" modificationDateTime="2023-02-06T03:46:32">
+  <contentHeader name="Unnamed" modificationDateTime="2023-02-13T12:19:21">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -20,12 +20,12 @@
       <pou name="WaterIrrigation" pouType="program">
         <interface>
           <localVars>
-            <variable name="OUTGOING_VALVE" address="%QX0.1">
+            <variable name="OUTGOING_VALVE" address="%QX0.0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="OUTGOING_PUMP" address="%QX0.0">
+            <variable name="OUTGOING_PUMP" address="%QX0.1">
               <type>
                 <BOOL/>
               </type>
@@ -58,7 +58,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="20"/>
+                <simpleValue value="10"/>
               </initialValue>
             </variable>
             <variable name="TANK_LEVEL_VALUE" address="%QW2">

@@ -100,7 +100,7 @@ PROGRAM WaterIrrigation
     TANK_FULL : BOOL := True;
     PULSE : BOOL;
     TANK_EMPTY : BOOL;
-    MAX_TANK_LEVEL : INT := 20;
+    MAX_TANK_LEVEL : INT := 10;
     TANK_LEVEL_VALUE : INT := 20;
   END_VAR
   VAR
