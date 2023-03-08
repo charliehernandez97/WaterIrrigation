@@ -3,7 +3,7 @@ import time
 import random
 
 
-client = ModbusTcpClient('192.168.1.215')
+client = ModbusTcpClient('172.20.10.8')
 client.connect()
 
 def manage_tank_level(tank_value : int, max_tank_value : int):

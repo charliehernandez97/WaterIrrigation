@@ -204,14 +204,18 @@ void WATERIRRIGATION_init__(WATERIRRIGATION *data__, BOOL retain) {
   __INIT_VAR(data__->OUTGOING_VALVE,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->OUTGOING_PUMP,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->INCOMING_PUMP,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->TANK_FULL,__BOOL_LITERAL(TRUE),retain)
+  __INIT_VAR(data__->TANK_FULL,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->PULSE,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->TANK_EMPTY,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->MANUAL,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->MAX_TANK_LEVEL,10,retain)
   __INIT_VAR(data__->TANK_LEVEL_VALUE,20,retain)
+  __INIT_VAR(data__->PB_INCOMING_OPEN,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->PB_INCOMING_CLOSE,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->PB_OUTGOING_OPEN,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->PB_OUTGOING_CLOSE,__BOOL_LITERAL(FALSE),retain)
   TON_init__(&data__->TON0,retain);
   TOF_init__(&data__->TOF0,retain);
-  TP_init__(&data__->TP0,retain);
   CTUD_init__(&data__->CTUD0,retain);
   R_TRIG_init__(&data__->R_TRIG1,retain);
   R_TRIG_init__(&data__->R_TRIG2,retain);
@@ -221,10 +225,7 @@ void WATERIRRIGATION_init__(WATERIRRIGATION *data__, BOOL retain) {
 void WATERIRRIGATION_body__(WATERIRRIGATION *data__) {
   // Initialise TEMP variables
 
-  __SET_VAR(data__->TP0.,IN,,__GET_VAR(data__->OUTGOING_VALVE,));
-  __SET_VAR(data__->TP0.,PT,,__time_to_timespec(1, 11000, 0, 0, 0, 0));
-  TP_body__(&data__->TP0);
-  __SET_VAR(data__->,OUTGOING_PUMP,,__GET_VAR(data__->TP0.Q,));
+  __SET_VAR(data__->,OUTGOING_PUMP,,__GET_VAR(data__->OUTGOING_VALVE,));
   __SET_VAR(data__->R_TRIG1.,CLK,,(__GET_VAR(data__->PULSE,) && __GET_VAR(data__->INCOMING_PUMP,)));
   R_TRIG_body__(&data__->R_TRIG1);
   __SET_VAR(data__->R_TRIG2.,CLK,,(__GET_VAR(data__->PULSE,) && __GET_VAR(data__->OUTGOING_PUMP,)));
@@ -243,6 +244,8 @@ void WATERIRRIGATION_body__(WATERIRRIGATION *data__) {
   __SET_VAR(data__->TOF0.,PT,,__time_to_timespec(1, 500, 0, 0, 0, 0));
   TOF_body__(&data__->TOF0);
   __SET_VAR(data__->,PULSE,,__GET_VAR(data__->TOF0.Q,));
+  __SET_VAR(data__->,INCOMING_PUMP,,(__GET_VAR(data__->PB_INCOMING_CLOSE,) && (__GET_VAR(data__->INCOMING_PUMP,) || !(__GET_VAR(data__->PB_INCOMING_OPEN,)))));
+  __SET_VAR(data__->,OUTGOING_VALVE,,(__GET_VAR(data__->PB_OUTGOING_CLOSE,) && (!(__GET_VAR(data__->PB_OUTGOING_OPEN,)) || __GET_VAR(data__->OUTGOING_VALVE,))));
 
   goto __end;
 
