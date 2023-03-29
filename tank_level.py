@@ -1,9 +1,14 @@
-from pymodbus.client.sync import ModbusTcpClient
+from pymodbus.client import ModbusTcpClient
 import time
 import random
 
+TURN_ON = 1
+TURN_OFF = 0
+OUTGOING_VALVE = 0
+INCOMING_VALVE = 2
+MANUAL = 6
 
-client = ModbusTcpClient('172.20.10.8')
+client = ModbusTcpClient('192.168.1.215')
 client.connect()
 
 def manage_tank_level(tank_value : int, max_tank_value : int):
@@ -18,9 +23,10 @@ def manage_tank_level(tank_value : int, max_tank_value : int):
     is_tank_empty = coils.bits[5]
 
     if is_tank_empty:
-        coils = client.write_coil(2, 1)
+        coils = client.write_coil(INCOMING_VALVE, TURN_ON)
+        coils = client.write_coil(OUTGOING_VALVE, TURN_OFF)
     elif is_tank_full:
-        coils = client.write_coil(2, 0)
+        coils = client.write_coil(INCOMING_VALVE, TURN_OFF)
 
 
 while True:

@@ -208,12 +208,13 @@ void WATERIRRIGATION_init__(WATERIRRIGATION *data__, BOOL retain) {
   __INIT_VAR(data__->PULSE,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->TANK_EMPTY,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->MANUAL,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->MAX_TANK_LEVEL,10,retain)
-  __INIT_VAR(data__->TANK_LEVEL_VALUE,20,retain)
   __INIT_VAR(data__->PB_INCOMING_OPEN,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->PB_INCOMING_CLOSE,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->PB_OUTGOING_OPEN,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->PB_OUTGOING_CLOSE,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->MAX_TANK_LEVEL,10,retain)
+  __INIT_VAR(data__->TANK_LEVEL_VALUE,10,retain)
+  __INIT_VAR(data__->WATER_MOISTURE,10,retain)
   TON_init__(&data__->TON0,retain);
   TOF_init__(&data__->TOF0,retain);
   CTUD_init__(&data__->CTUD0,retain);
@@ -245,7 +246,7 @@ void WATERIRRIGATION_body__(WATERIRRIGATION *data__) {
   TOF_body__(&data__->TOF0);
   __SET_VAR(data__->,PULSE,,__GET_VAR(data__->TOF0.Q,));
   __SET_VAR(data__->,INCOMING_PUMP,,(__GET_VAR(data__->PB_INCOMING_CLOSE,) && (__GET_VAR(data__->INCOMING_PUMP,) || !(__GET_VAR(data__->PB_INCOMING_OPEN,)))));
-  __SET_VAR(data__->,OUTGOING_VALVE,,(__GET_VAR(data__->PB_OUTGOING_CLOSE,) && (!(__GET_VAR(data__->PB_OUTGOING_OPEN,)) || __GET_VAR(data__->OUTGOING_VALVE,))));
+  __SET_VAR(data__->,OUTGOING_VALVE,,(!(__GET_VAR(data__->PB_OUTGOING_CLOSE,)) && (__GET_VAR(data__->OUTGOING_VALVE,) || __GET_VAR(data__->PB_OUTGOING_OPEN,))));
 
   goto __end;
 
