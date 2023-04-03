@@ -20,7 +20,7 @@ while True:
     print("Plant Moisture", end=" ")
     print("\tMeter")
     print(plant_moisture, end=" ")
-    print("\t\t\t\t" + meter[0:plant_moisture])
+    print("\t\t\t\t\t\t\t" + meter[0:plant_moisture])
 
     coils = client.read_coils(0,6)
     registers = client.read_holding_registers(0,6)
