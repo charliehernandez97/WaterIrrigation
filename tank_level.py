@@ -21,12 +21,14 @@ def manage_tank_level(tank_value : int, max_tank_value : int):
     coils = client.read_coils(0,6)
     is_tank_full = coils.bits[3]
     is_tank_empty = coils.bits[5]
+    manual = coils.bits[6]
 
-    if is_tank_empty:
-        coils = client.write_coil(INCOMING_VALVE, TURN_ON)
-        coils = client.write_coil(OUTGOING_VALVE, TURN_OFF)
-    elif is_tank_full:
-        coils = client.write_coil(INCOMING_VALVE, TURN_OFF)
+    if not manual:
+        if is_tank_empty:
+            coils = client.write_coil(INCOMING_VALVE, TURN_ON)
+            coils = client.write_coil(OUTGOING_VALVE, TURN_OFF)
+        elif is_tank_full:
+            coils = client.write_coil(INCOMING_VALVE, TURN_OFF)
 
 
 while True:
