@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2023-04-13T15:52:21"/>
-  <contentHeader name="Unnamed" modificationDateTime="2023-04-25T13:16:14">
+  <contentHeader name="Unnamed" modificationDateTime="2023-04-27T16:25:18">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -40,29 +40,21 @@
                 <BOOL/>
               </type>
             </variable>
-            <variable name="MASTER_COIL" address="%QX0.4">
+            <variable name="MAX_SENSOR" address="%IX0.3">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="START" address="%IX0.0">
+          </localVars>
+          <localVars>
+            <variable name="TP0">
               <type>
-                <BOOL/>
+                <derived name="TP"/>
               </type>
             </variable>
-            <variable name="STOP" address="%IX0.1">
+            <variable name="TON0">
               <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="LOW_SENSOR" address="%IX0.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HIGH_SENSOR" address="%IX0.3">
-              <type>
-                <BOOL/>
+                <derived name="TON"/>
               </type>
             </variable>
           </localVars>
@@ -153,7 +145,7 @@
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="140"/>
-                <connection refLocalId="11">
+                <connection refLocalId="33">
                   <position x="980" y="480"/>
                   <position x="820" y="480"/>
                 </connection>
@@ -163,13 +155,13 @@
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="220"/>
+                <connection refLocalId="39">
+                  <position x="980" y="560"/>
+                  <position x="820" y="560"/>
+                </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="260"/>
-                <connection refLocalId="15">
-                  <position x="980" y="600"/>
-                  <position x="820" y="600"/>
-                </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="300"/>
@@ -182,10 +174,6 @@
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="420"/>
-                <connection refLocalId="23">
-                  <position x="980" y="760"/>
-                  <position x="820" y="760"/>
-                </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="460"/>
@@ -271,7 +259,7 @@
               </connectionPointOut>
               <variable>INLET</variable>
             </coil>
-            <contact localId="9" height="20" width="30" negated="true">
+            <contact localId="32" height="20" width="21" negated="false">
               <position x="190" y="470"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
@@ -281,229 +269,17 @@
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="30" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>START</variable>
+              <variable>MAX_SENSOR</variable>
             </contact>
-            <contact localId="10" height="20" width="30" negated="false">
-              <position x="410" y="470"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="9">
-                  <position x="410" y="480"/>
-                  <position x="220" y="480"/>
-                </connection>
-                <connection refLocalId="12">
-                  <position x="410" y="480"/>
-                  <position x="315" y="480"/>
-                  <position x="315" y="520"/>
-                  <position x="220" y="520"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>STOP</variable>
-            </contact>
-            <coil localId="11" height="20" width="30" negated="false">
+            <coil localId="33" height="20" width="30" negated="false">
               <position x="790" y="470"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="10">
+                <connection refLocalId="34" formalParameter="Q">
                   <position x="790" y="480"/>
-                  <position x="440" y="480"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>MASTER_COIL</variable>
-            </coil>
-            <contact localId="12" height="20" width="30" negated="false">
-              <position x="190" y="510"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="3">
-                  <position x="190" y="520"/>
-                  <position x="120" y="520"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>MASTER_COIL</variable>
-            </contact>
-            <contact localId="13" height="20" width="30" negated="false">
-              <position x="300" y="590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="17">
-                  <position x="300" y="600"/>
-                  <position x="220" y="600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>LOW_SENSOR</variable>
-            </contact>
-            <contact localId="14" height="20" width="30" negated="true">
-              <position x="410" y="590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="13">
-                  <position x="410" y="600"/>
-                  <position x="330" y="600"/>
-                </connection>
-                <connection refLocalId="16">
-                  <position x="410" y="600"/>
-                  <position x="380" y="600"/>
-                  <position x="380" y="650"/>
-                  <position x="330" y="650"/>
-                </connection>
-                <connection refLocalId="18">
-                  <position x="410" y="600"/>
-                  <position x="380" y="600"/>
-                  <position x="380" y="690"/>
-                  <position x="330" y="690"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>HIGH_SENSOR</variable>
-            </contact>
-            <coil localId="15" height="20" width="30" negated="false">
-              <position x="790" y="590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="14">
-                  <position x="790" y="600"/>
-                  <position x="440" y="600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>INLET_VALVE</variable>
-            </coil>
-            <contact localId="16" height="20" width="30" negated="false">
-              <position x="300" y="640"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="17">
-                  <position x="300" y="650"/>
-                  <position x="240" y="650"/>
-                  <position x="240" y="600"/>
-                  <position x="220" y="600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>INLET_VALVE</variable>
-            </contact>
-            <contact localId="17" height="20" width="30" negated="false">
-              <position x="190" y="590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="3">
-                  <position x="190" y="600"/>
-                  <position x="120" y="600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>MASTER_COIL</variable>
-            </contact>
-            <contact localId="18" height="20" width="30" negated="false">
-              <position x="300" y="680"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="17">
-                  <position x="300" y="690"/>
-                  <position x="240" y="690"/>
-                  <position x="240" y="600"/>
-                  <position x="220" y="600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>START</variable>
-            </contact>
-            <contact localId="19" height="20" width="30" negated="false">
-              <position x="190" y="750"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="3">
-                  <position x="190" y="760"/>
-                  <position x="120" y="760"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>MASTER_COIL</variable>
-            </contact>
-            <contact localId="20" height="20" width="30" negated="false">
-              <position x="300" y="750"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="19">
-                  <position x="300" y="760"/>
-                  <position x="220" y="760"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>HIGH_SENSOR</variable>
-            </contact>
-            <contact localId="21" height="20" width="30" negated="false">
-              <position x="300" y="800"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="19">
-                  <position x="300" y="810"/>
-                  <position x="260" y="810"/>
-                  <position x="260" y="760"/>
-                  <position x="220" y="760"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>OUTLET_VALVE</variable>
-            </contact>
-            <contact localId="22" height="20" width="30" negated="true">
-              <position x="420" y="750"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="20">
-                  <position x="420" y="760"/>
-                  <position x="330" y="760"/>
-                </connection>
-                <connection refLocalId="21">
-                  <position x="420" y="760"/>
-                  <position x="375" y="760"/>
-                  <position x="375" y="810"/>
-                  <position x="330" y="810"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="30" y="10"/>
-              </connectionPointOut>
-              <variable>LOW_SENSOR</variable>
-            </contact>
-            <coil localId="23" height="20" width="30" negated="false">
-              <position x="790" y="750"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="22">
-                  <position x="790" y="760"/>
-                  <position x="450" y="760"/>
+                  <position x="460" y="480"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -511,6 +287,128 @@
               </connectionPointOut>
               <variable>OUTLET_VALVE</variable>
             </coil>
+            <block localId="34" typeName="TP" instanceName="TP0" height="60" width="50">
+              <position x="410" y="450"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="32">
+                      <position x="410" y="480"/>
+                      <position x="211" y="480"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="35">
+                      <position x="410" y="500"/>
+                      <position x="390" y="500"/>
+                      <position x="390" y="510"/>
+                      <position x="370" y="510"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="35" height="30" width="90" negated="false">
+              <position x="310" y="490"/>
+              <connectionPointOut>
+                <relPosition x="90" y="10"/>
+              </connectionPointOut>
+              <expression>T#10000ms</expression>
+            </inVariable>
+            <contact localId="36" height="20" width="21" negated="true">
+              <position x="190" y="550"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="3">
+                  <position x="190" y="560"/>
+                  <position x="120" y="560"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>MAX_SENSOR</variable>
+            </contact>
+            <block localId="37" typeName="TON" instanceName="TON0" height="60" width="50">
+              <position x="340" y="540"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="36">
+                      <position x="340" y="570"/>
+                      <position x="275" y="570"/>
+                      <position x="275" y="560"/>
+                      <position x="211" y="560"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="40">
+                      <position x="340" y="590"/>
+                      <position x="325" y="590"/>
+                      <position x="325" y="600"/>
+                      <position x="310" y="600"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <coil localId="39" height="20" width="30" negated="false">
+              <position x="790" y="550"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="37" formalParameter="Q">
+                  <position x="790" y="560"/>
+                  <position x="590" y="560"/>
+                  <position x="590" y="570"/>
+                  <position x="390" y="570"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="30" y="10"/>
+              </connectionPointOut>
+              <variable>INLET_VALVE</variable>
+            </coil>
+            <inVariable localId="40" height="30" width="90" negated="false">
+              <position x="230" y="580"/>
+              <connectionPointOut>
+                <relPosition x="90" y="20"/>
+              </connectionPointOut>
+              <expression>T#5000ms</expression>
+            </inVariable>
           </LD>
         </body>
       </pou>
