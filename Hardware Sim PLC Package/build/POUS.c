@@ -217,11 +217,11 @@ void IRRIGATION_HARDWARE_body__(IRRIGATION_HARDWARE *data__) {
   __SET_VAR(data__->,OUTLET,,__GET_VAR(data__->OUTLET_VALVE,));
   __SET_VAR(data__->,INLET,,__GET_VAR(data__->INLET_VALVE,));
   __SET_VAR(data__->TP0.,IN,,__GET_VAR(data__->MAX_SENSOR,));
-  __SET_VAR(data__->TP0.,PT,,__time_to_timespec(1, 10000, 0, 0, 0, 0));
+  __SET_VAR(data__->TP0.,PT,,__time_to_timespec(1, 8000, 0, 0, 0, 0));
   TP_body__(&data__->TP0);
   __SET_VAR(data__->,OUTLET_VALVE,,__GET_VAR(data__->TP0.Q,));
   __SET_VAR(data__->TON0.,IN,,!(__GET_VAR(data__->MAX_SENSOR,)));
-  __SET_VAR(data__->TON0.,PT,,__time_to_timespec(1, 5000, 0, 0, 0, 0));
+  __SET_VAR(data__->TON0.,PT,,__time_to_timespec(1, 2000, 0, 0, 0, 0));
   TON_body__(&data__->TON0);
   __SET_VAR(data__->,INLET_VALVE,,__GET_VAR(data__->TON0.Q,));
 

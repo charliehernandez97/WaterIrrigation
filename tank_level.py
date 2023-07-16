@@ -1,4 +1,4 @@
-from pymodbus.client import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 import time
 import random
 
@@ -8,7 +8,7 @@ OUTGOING_VALVE = 0
 INCOMING_VALVE = 2
 MANUAL = 6
 
-client = ModbusTcpClient('192.168.1.215')
+client = ModbusTcpClient('192.168.1.67')
 client.connect()
 
 def manage_tank_level(tank_value : int, max_tank_value : int):

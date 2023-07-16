@@ -1,8 +1,8 @@
-from pymodbus.client import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 import time
 import random
 
-client = ModbusTcpClient('192.168.1.215')
+client = ModbusTcpClient('192.168.1.67')
 client.connect()
 
 TURN_ON = 1
@@ -33,7 +33,7 @@ while True:
 
     # used to simulate plant moisture going down
     # at random times between 2 and 10
-    random_time = random.randint(2, 10)
+    random_time = random.randint(2, 8)
 
     if manual:
         if not is_pump_on:
